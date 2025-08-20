@@ -35,7 +35,7 @@
 
   <div class="login-card">
     <h3 class="text-center mb-4">Iniciar Sesión</h3>
-    <form>
+    <form onsubmit="irAPrincipal(event)">
       <!-- Usuario -->
       <div class="mb-3">
         <label for="email" class="form-label">Correo electrónico</label>
@@ -47,7 +47,6 @@
         <label for="password" class="form-label">Contraseña</label>
         <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
       </div>
-
 
       <!-- Botón -->
       <button type="submit" class="btn btn-custom w-100">Ingresar</button>
@@ -62,5 +61,13 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Función para redirigir
+    function irAPrincipal(event) {
+      event.preventDefault(); // Evita que el form recargue la página
+      window.location.href = "paginaprincipal.html"; // Redirige a la página principal
+    }
+  </script>
 </body>
 </html>
