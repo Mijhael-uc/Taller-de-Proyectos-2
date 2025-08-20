@@ -12,23 +12,24 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* Encabezado principal */
+    /* Encabezado responsivo */
     header {
       background: url('https://wallpaperaccess.com/full/317501.jpg') no-repeat center center/cover;
-      height: 300px;
+      min-height: 250px;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
+      padding: 20px;
     }
 
     header::after {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6); /* overlay oscuro */
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .header-content {
@@ -37,12 +38,17 @@
     }
 
     .header-content h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.5rem); /* Tamaño fluido */
       font-weight: bold;
     }
 
+    .header-content p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+    }
+
+    /* Tarjetas anime */
     .anime-card img {
-      height: 300px;
+      height: 250px;
       object-fit: cover;
     }
 
@@ -58,6 +64,19 @@
     .anime-title {
       font-weight: bold;
       font-size: 1.3rem;
+    }
+
+    /* Sección episodios */
+    .episodios {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .episodios h3 {
+      margin-bottom: 15px;
     }
 
     footer {
@@ -85,42 +104,45 @@
 
     <div class="row g-4">
       <!-- Anime 1 -->
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6 col-12">
         <div class="card anime-card">
           <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg" class="card-img-top" alt="Attack on Titan">
           <div class="card-body">
             <p class="anime-title">Attack on Titan</p>
             <p class="card-text">La humanidad lucha por sobrevivir contra gigantes devoradores de humanos en un mundo post-apocalíptico.</p>
+            <!-- Botón Attack on Titan -->
             <a href="episodios-aot.html" class="btn btn-ver w-100">Ver Episodios</a>
           </div>
         </div>
       </div>
 
       <!-- Anime 2 -->
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6 col-12">
         <div class="card anime-card">
           <img src="https://cdn.myanimelist.net/images/anime/1533/121118.jpg" class="card-img-top" alt="Jujutsu Kaisen">
           <div class="card-body">
             <p class="anime-title">Jujutsu Kaisen</p>
             <p class="card-text">Yuji Itadori se adentra en el mundo de los hechiceros para eliminar maldiciones tras ingerir un objeto maldito.</p>
+            <!-- Botón Jujutsu Kaisen -->
             <a href="episodios-jujutsu.html" class="btn btn-ver w-100">Ver Episodios</a>
           </div>
         </div>
       </div>
 
       <!-- Anime 3 -->
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6 col-12">
         <div class="card anime-card">
           <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" class="card-img-top" alt="My Hero Academia">
           <div class="card-body">
             <p class="anime-title">My Hero Academia</p>
             <p class="card-text">En un mundo lleno de superpoderes, un joven sin dones sueña con convertirse en el héroe más grande de todos.</p>
+            <!-- Botón My Hero Academia -->
             <a href="episodios-mha.html" class="btn btn-ver w-100">Ver Episodios</a>
           </div>
         </div>
       </div>
     </div>
-  </main>
+</main>
 
   <!-- Pie de página -->
   <footer>
