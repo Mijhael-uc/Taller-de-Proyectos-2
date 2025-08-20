@@ -3,33 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AnimeFlex</title>
+  <title>AnimeFlex - Tu Mundo Anime</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      background-color: #f4f4f4;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
     }
 
-    /* Encabezado responsivo */
+    /* Header */
     header {
       background: url('https://wallpaperaccess.com/full/317501.jpg') no-repeat center center/cover;
-      min-height: 250px;
-      color: white;
+      min-height: 450px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
-      padding: 20px;
     }
 
     header::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
     }
 
     .header-content {
@@ -38,53 +37,79 @@
     }
 
     .header-content h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem); /* Tamaño fluido */
+      font-size: 4rem;
       font-weight: bold;
+      text-shadow: 4px 4px 8px rgba(0,0,0,0.9);
+      color: #ff4757;
+      animation: neon 1.5s infinite alternate;
     }
 
     .header-content p {
-      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-size: 1.4rem;
+      color: #f1f2f6;
     }
 
-    /* Tarjetas anime */
+    @keyframes neon {
+      from { text-shadow: 0 0 10px #ff4757, 0 0 20px #ff6b81; }
+      to { text-shadow: 0 0 20px #ffa502, 0 0 40px #ff6348; }
+    }
+
+    /* Descripción */
+    .descripcion {
+      background: #0f3460;
+      border-radius: 15px;
+      padding: 40px;
+      margin-top: -40px;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .descripcion img {
+      border-radius: 15px;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.6);
+      max-height: 300px;
+    }
+
+    /* Carrusel */
+    .carousel-inner img {
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* Tarjetas Anime */
+    .anime-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    .anime-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 12px 25px rgba(0,0,0,0.7);
+    }
     .anime-card img {
-      height: 250px;
+      height: 300px;
       object-fit: cover;
     }
-
     .btn-ver {
-      background-color: #4e73df;
+      background-color: #e84118;
       color: white;
-    }
-
-    .btn-ver:hover {
-      background-color: #2e59d9;
-    }
-
-    .anime-title {
       font-weight: bold;
-      font-size: 1.3rem;
+      border-radius: 8px;
+    }
+    .btn-ver:hover {
+      background-color: #c23616;
     }
 
-    /* Sección episodios */
-    .episodios {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 40px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .episodios h3 {
-      margin-bottom: 15px;
-    }
-
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #1b1b1b;
-      color: white;
+      background-color: #000;
       margin-top: 40px;
+      color: #ccc;
     }
   </style>
 </head>
@@ -94,60 +119,96 @@
   <header>
     <div class="header-content">
       <h1>AnimeFlex</h1>
-      <p>Tu universo anime en un solo lugar</p>
+      <p>✨ Tu universo anime en un solo lugar ✨</p>
     </div>
   </header>
 
-  <!-- Contenido principal -->
-  <main class="container my-5">
-    <h2 class="mb-4">Animes Destacados</h2>
+  <!-- Descripción -->
+  <section class="container descripcion text-center text-md-start my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h2 class="mb-3">Bienvenido a AnimeFlex 🎌</h2>
+        <p>
+          Explora los mejores animes organizados por temporadas, géneros y popularidad.  
+          Disfruta de un diseño pensado para los verdaderos fans y adéntrate en el universo otaku con estilo.  
+          🚀 ¡Dale play a la diversión!
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="https://i.pinimg.com/originals/32/15/85/321585b02a0534a7a27d0e2c5f7955d3.jpg" alt="Anime" class="img-fluid">
+      </div>
+    </div>
+  </section>
 
+  <!-- Carrusel -->
+  <div id="animeCarousel" class="carousel slide container my-5" data-bs-ride="carousel">
+    <div class="carousel-inner rounded-4 shadow-lg">
+      <div class="carousel-item active">
+        <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg" class="d-block w-100" alt="Attack on Titan">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cdn.myanimelist.net/images/anime/1533/121118.jpg" class="d-block w-100" alt="Jujutsu Kaisen">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" class="d-block w-100" alt="My Hero Academia">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#animeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#animeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Series destacadas -->
+  <main class="container my-5">
+    <h2 class="mb-4 text-center">🌟 Animes Destacados 🌟</h2>
     <div class="row g-4">
       <!-- Anime 1 -->
-      <div class="col-md-4 col-sm-6 col-12">
+      <div class="col-md-4">
         <div class="card anime-card">
           <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg" class="card-img-top" alt="Attack on Titan">
           <div class="card-body">
-            <p class="anime-title">Attack on Titan</p>
-            <p class="card-text">La humanidad lucha por sobrevivir contra gigantes devoradores de humanos en un mundo post-apocalíptico.</p>
-            <!-- Botón Attack on Titan -->
+            <p class="anime-title fw-bold fs-5">Attack on Titan</p>
+            <p>La humanidad lucha por sobrevivir contra gigantes devoradores de humanos en un mundo post-apocalíptico.</p>
             <a href="episodios-aot.html" class="btn btn-ver w-100">Ver Episodios</a>
           </div>
         </div>
       </div>
 
       <!-- Anime 2 -->
-      <div class="col-md-4 col-sm-6 col-12">
+      <div class="col-md-4">
         <div class="card anime-card">
           <img src="https://cdn.myanimelist.net/images/anime/1533/121118.jpg" class="card-img-top" alt="Jujutsu Kaisen">
           <div class="card-body">
-            <p class="anime-title">Jujutsu Kaisen</p>
-            <p class="card-text">Yuji Itadori se adentra en el mundo de los hechiceros para eliminar maldiciones tras ingerir un objeto maldito.</p>
-            <!-- Botón Jujutsu Kaisen -->
+            <p class="anime-title fw-bold fs-5">Jujutsu Kaisen</p>
+            <p>Yuji Itadori se adentra en el mundo de los hechiceros para eliminar maldiciones tras ingerir un objeto maldito.</p>
             <a href="episodios-jujutsu.html" class="btn btn-ver w-100">Ver Episodios</a>
           </div>
         </div>
       </div>
 
       <!-- Anime 3 -->
-      <div class="col-md-4 col-sm-6 col-12">
+      <div class="col-md-4">
         <div class="card anime-card">
           <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" class="card-img-top" alt="My Hero Academia">
           <div class="card-body">
-            <p class="anime-title">My Hero Academia</p>
-            <p class="card-text">En un mundo lleno de superpoderes, un joven sin dones sueña con convertirse en el héroe más grande de todos.</p>
-            <!-- Botón My Hero Academia -->
+            <p class="anime-title fw-bold fs-5">My Hero Academia</p>
+            <p>En un mundo lleno de superpoderes, un joven sin dones sueña con convertirse en el héroe más grande de todos.</p>
             <a href="episodios-mha.html" class="btn btn-ver w-100">Ver Episodios</a>
           </div>
         </div>
       </div>
     </div>
-</main>
+  </main>
 
   <!-- Pie de página -->
   <footer>
-    <p>© 2025 AnimeFlex. Todos los derechos reservados.</p>
+    <p>© 2025 AnimeFlex 🎌 | Diseñado para verdaderos fans del anime</p>
   </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
